@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="./colorpalette.css">
+        <script defer src = './colorpalette.js'></script>
+        <title>Color Palette</title>
+        <meta name='description' content="Color Palette">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta charset="UTF-8">
+    </head>
+    <body>
+        <div class="wrapper">
+            <nav>
+                <ul id='color-list'>
+                    <li>rgb(255, 0, 0)</li>
+                    <li>rgb(0, 0, 255)</li>
+                    <li>rgb(255, 255, 0)</li>
+                    <li>rgb(0, 255, 0)</li>
+                    <li>rgb(255, 0, 255)</li>
+                </ul>
+            </nav>
+            <div id="button-tabs">
+                <button onclick='generateColors(5)'><img src="https://www.nicepng.com/png/full/99-998465_network-icon-png.png" alt='Generate Icon'></button>
+                <button onclick='savePalette()'><img src="https://i.pinimg.com/originals/43/12/2c/43122c096988b3dae5486608a002d713.png" alt="Save Icon"></button>
+                <button onclick="library()"><img src="https://assets.stickpng.com/thumbs/580b57fcd9996e24bc43c4c8.png" alt="Library Icon"></button>
+            </div>
+            <div id="button-text">
+                <h1>Generate Palette</h1>
+                <h1>Save Palette</p>
+                <h1>Library</h1>
+            </div>
+            <div id="save-popup">
+                <button onclick='closeSavePopup()' class='cancel'>X</button>
+                <h1>Name?</h1>
+                <input type="text" name="">
+                <input type="submit" name="">
+            </div>
+            <div id="library-popup">
+                <button onclick='closeLibraryPopup()' class='cancel'>X</button>
+                <h1>Saved Palettes</h1>
+            </div>
+        </div>
+    </body>
+</html>
