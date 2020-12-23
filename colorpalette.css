@@ -1,0 +1,112 @@
+@import url('https://fonts.googleapis.com/css2?family=Quattrocento&display=swap');
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: Quattrocento;
+}
+
+#color-list {
+    display:flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#color-list li {
+    list-style-type: none;
+    min-width: 20%;
+    line-height: 25rem;
+    text-align: center;
+    font-size: 20px;
+}
+
+#color-list li:first-child {
+    background-color:red;
+}
+
+#color-list li:nth-child(2) {
+    background-color: blue;
+}
+
+#color-list li:nth-child(3) {
+    background-color: yellow;
+}
+
+#color-list li:nth-child(4) {
+    background-color: green;
+}
+
+#color-list li:nth-child(5) {
+    background-color: purple;
+}
+
+#button-tabs {
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 2rem;
+}
+
+#button-tabs button {
+    font-size: 30px;
+    background-color: transparent;
+    border:none;
+    background-color:blanchedalmond;
+    padding: 5px;
+    border-radius: 15px;
+    color: black;
+    cursor:pointer;
+    margin-left: 3rem;
+    margin-right: 3rem;
+}
+
+#button-tabs button img {
+    width: 20%;
+}
+
+#button-text {
+    display:flex;
+    justify-content: space-evenly;
+    margin-top: 2rem;
+}
+
+#save-popup {
+    position:absolute;
+    left:50%;
+    top:20%;
+    transform: translate(-50%, -50%);
+    display: none;
+    border: none;
+    border-radius: 15px;
+    padding: 20px;
+    background-color:white;
+}
+
+#library-popup {
+    position:absolute;
+    left:50%;
+    top:20%;
+    transform: translate(-50%, -50%);
+    display: none;
+    border: none;
+    border-radius: 15px;
+    padding: 20px;
+    background-color:white;
+}
+
+.cancel {
+    position:relative;
+    left: 98%;
+    top:98%;
+    transform: translate(-50%, -50%);
+    border:none;
+    font-size: 30px;
+    background-color: white;
+    cursor: pointer;
+}
+
+.cancel:hover {
+    color:rgb(142, 128, 155);
+}
+
