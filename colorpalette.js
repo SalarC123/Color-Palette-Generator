@@ -42,14 +42,16 @@ function transferToLibrary() {
     let colors = document.querySelector(`#color-list li`)
 }
 
+const blurredItems = ['#button-text', '#button-tabs', '#color-list', '#footer']
+
 function blurBackground() {
-    document.querySelector('#button-text').style.filter = 'blur(3px)'
-    document.querySelector('#button-tabs').style.filter = 'blur(3px)'
-    document.querySelector('#color-list').style.filter = 'blur(3px)'
+    for (item of blurredItems) {
+        document.querySelector(item).style.filter = 'blur(3px)'
+    }
 }
 
 function unblurBackground() {
-    document.querySelector('#button-text').style.filter = ''
-    document.querySelector('#button-tabs').style.filter = ''
-    document.querySelector('#color-list').style.filter = ''
+    for (item of blurredItems) {
+        document.querySelector(item).style.filter = ''
+    }
 }
