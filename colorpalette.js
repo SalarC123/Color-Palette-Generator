@@ -32,14 +32,27 @@ function closeLibraryPopup() {
 }
 
 function transferToLibrary() {
+    // Adds button to library
     libraryul = document.querySelector('#library-popup ul')
     inputText = document.querySelector('#name-of-palette').value
     if (inputText) {
         document.querySelector('#name-of-palette').value = ''
-        libraryul.innerHTML += `<li>${inputText}</li>`
+        libraryul.innerHTML += `<li><button>${inputText}</button></li>`
     }
 
-    let colors = document.querySelector(`#color-list li`)
+    // Adds colors to library
+    let colors = document.querySelectorAll('#color-list li')
+    for (color of colors) {
+        let newClassTag = `color-${randomClassName()}`
+        newSpan = document.createElement('span')
+        newSpan.setAttribute('class', newClassTag)
+        libraryul.innerHTML += newSpan.outerHTML
+        let colorBlock = document.querySelector('.' + newClassTag)
+        console.log(libraryul)
+        colorBlock.style.width = '35px'
+        colorBlock.style.height = '35px'
+        colorBlock.style.backgroundColor = color.innerHTML
+    }
 }
 
 const blurredItems = ['#button-text', '#button-tabs', '#color-list', '#footer']
@@ -54,4 +67,8 @@ function unblurBackground() {
     for (item of blurredItems) {
         document.querySelector(item).style.filter = ''
     }
+}
+
+function randomClassName() {
+    return Math.random().toString(36).substr(2,10)
 }
