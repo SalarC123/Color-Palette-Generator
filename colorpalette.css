@@ -31,23 +31,23 @@
 }
 
 #color-list li:first-child {
-    background-color:red;
+    background-color:rgb(255,0,0);
 }
 
 #color-list li:nth-child(2) {
-    background-color: blue;
+    background-color: rgb(0,0,255);
 }
 
 #color-list li:nth-child(3) {
-    background-color: yellow;
+    background-color: rgb(255,255,0);
 }
 
 #color-list li:nth-child(4) {
-    background-color: green;
+    background-color: rgb(0,255,0);
 }
 
 #color-list li:nth-child(5) {
-    background-color: purple;
+    background-color: rgb(255,0,255);
 }
 
 #button-tabs {
@@ -60,7 +60,7 @@
     font-size: 30px;
     background-color: transparent;
     border:none;
-    background-color:blanchedalmond;
+    background-color: blanchedalmond;
     padding: 5px;
     border-radius: 15px;
     color: black;
@@ -119,6 +119,9 @@
 #saved-palettes li {
     list-style-type: none;
     margin-right: 1rem;
+    margin-top: 1.3rem;
+    display:flex;
+    flex-direction: right;
 }
 
 #saved-palettes li button {
@@ -128,6 +131,12 @@
     padding: 0.5rem;
     margin-bottom: 0.5rem;
     background-color: blanchedalmond;
+}
+
+#saved-palettes li h2 {
+    margin-left: 1rem;
+    color: red;
+    margin-top: 0.3rem;
 }
 
 .cancel {
@@ -143,12 +152,6 @@
 
 .cancel:hover {
     color:rgb(142, 128, 155);
-}
-
-.colorme {
-    width: 100px;
-    height: 100px;
-    background-color: blue;
 }
 
 #footer {
@@ -168,6 +171,9 @@
 
 /* TODO LIST */
 
-/* MAKE LIBRARY BUTTONS WORK */
+/* LIBRARY BUTTON:ACTIVE */
+/* STOP LIBRARY FROM GOING INTO THE SKY */
+/* STYLE SAVE PALLETE FORM */
+/* OPTION TO DELETE SAVED PALETTES */
 /* ANIMATION / PERSPECTIVE */
 /* UPDATE GITHUB */
