@@ -25,7 +25,7 @@
 #color-list li {
     list-style-type: none;
     min-width: 20%;
-    line-height: 25rem;
+    line-height: 30rem;
     text-align: center;
     font-size: 20px;
 }
@@ -48,6 +48,24 @@
 
 #color-list li:nth-child(5) {
     background-color: rgb(255,0,255);
+}
+
+#locks {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    margin-top: 1rem;
+}
+
+#locks button {
+    margin: auto;
+    border: white;
+    background-color: white;
+}
+
+#locks button img {
+    width: 50px;
+    height: 50px;
 }
 
 #button-tabs {
@@ -83,7 +101,7 @@
     margin-top: 1rem;
 }
 
-#button-text h1 {                    
+#button-text h1 {                  
     margin-right: 9rem;
     margin-left: 3rem;
 }
@@ -100,15 +118,33 @@
     background-color:white;
 }
 
-#save-popup input{
+#name-of-palette {
     margin-top: 1rem;
+    font-size: 1.5rem;
+    border-radius: 30px;
+    padding:10px;
+    background-image: linear-gradient(to right, #00ff1e ,#00fbff)
 }
+
+#submit {
+    background-image: linear-gradient(to right, #00ff1e ,#00fbff);
+    width: 3rem;
+    height: 3rem;
+    font-size: large;
+    border-radius: 20px;
+    margin-left: 0.3rem;
+}
+
+#submit:active {
+    color:black;
+    border: none
+}
+
 
 #library-popup {
     position:absolute;
-    left:50%;
-    top:20%;
-    transform: translate(-50%, -50%);
+    left:38.8%;
+    top:10%;
     display: none;
     border: 5px solid black;
     border-radius: 15px;
@@ -182,11 +218,11 @@
 
 /* TODO LIST */
 
-/* STOP LIBRARY FROM GOING INTO THE SKY */
-/* CHANGE BLANCHEDALMOND COLOR SCHEME TO GRADIENT */
-/* GSAP ANIMATIONS */
-/* STYLE SAVE PALLETE FORM */
 /* localStorage Web Storage API */
+/* CHANGE BLANCHEDALMOND COLOR SCHEME TO GRADIENT */
+/* GSAP CARD FLIP WITH LETTERS POPPING OUT THEN IN DURING TURN AND GSAP ON CLICK */
+/* STYLE SAVE PALLETE FORM */
+/* FIX LIBRARY POPUP SPACING */
 /* ANIMATION / PERSPECTIVE */
 /* OVERALL STYLING */
 /* UPDATE GITHUB */

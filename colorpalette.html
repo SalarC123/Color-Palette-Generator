@@ -9,15 +9,20 @@
     </head>
     <body>
         <div class="wrapper">
-            <nav>
-                <ul id='color-list'>
-                    <li>rgb(255, 0, 0)</li>
-                    <li>rgb(0, 0, 255)</li>
-                    <li>rgb(255, 255, 0)</li>
-                    <li>rgb(0, 255, 0)</li>
-                    <li>rgb(255, 0, 255)</li>
-                </ul>
-            </nav>
+            <ul id='color-list'>
+                <li>rgb(255, 0, 0)</li>
+                <li>rgb(0, 0, 255)</li>
+                <li>rgb(255, 255, 0)</li>
+                <li>rgb(0, 255, 0)</li>
+                <li>rgb(255, 0, 255)</li>
+            </ul>
+            <ul id="locks">
+                <button onclick="changeIcon(1)"><img src="./Images/unlock.png" alt="lock"></button>
+                <button onclick="changeIcon(2)"><img src="./Images/unlock.png" alt="lock"></button>
+                <button onclick="changeIcon(3)"><img src="./Images/unlock.png" alt="lock"></button>
+                <button onclick="changeIcon(4)"><img src="./Images/unlock.png" alt="lock"></button>
+                <button onclick="changeIcon(5)"><img src="./Images/unlock.png" alt="lock"></button>
+            </ul>
             <div id="button-tabs">
                 <button onclick='generateColors()'><img src="images/generate.png" alt='Generate Icon'></button>
                 <button onclick='savePalette()'><img src="images/save.png" alt="Save Icon"></button>
@@ -32,7 +37,7 @@
                 <button onclick='closeSavePopup()' class='cancel'>X</button>
                 <h1>NAME YOUR PALETTE</h1>
                 <input id='name-of-palette' type="text">
-                <input onclick='transferToLibrary()' type="submit" value="Save">
+                <input onclick='transferToLibrary()' id='submit' type="submit" value="Save">
             </div>
             <div id="library-popup">
                 <button onclick='closeLibraryPopup()' class='cancel'>X</button>
