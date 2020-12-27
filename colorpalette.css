@@ -11,7 +11,7 @@
     perspective: 1000px;
 }
 
-#button-tabs, #button-text, #color-list {
+#button-tabs, #button-text, #color-list, #footer {
     transform: rotateY(45deg) rotateX(45deg);
 } */
 
@@ -51,8 +51,8 @@
 }
 
 #button-tabs {
-    display: flex;
-    justify-content: space-evenly;
+    display: flex;        
+    justify-content: space-evenly;       
     margin-top: 2rem;
 }
 
@@ -65,8 +65,12 @@
     border-radius: 15px;
     color: black;
     cursor:pointer;
-    margin-left: 3rem;
-    margin-right: 3rem;
+    margin-left: 3rem;              
+    margin-right: 3rem;              
+}
+
+#button-tabs button:hover {
+    background-color: wheat;
 }
 
 #button-tabs button img {
@@ -79,7 +83,7 @@
     margin-top: 1rem;
 }
 
-#button-text h1 {
+#button-text h1 {                    
     margin-right: 9rem;
     margin-left: 3rem;
 }
@@ -130,13 +134,20 @@
     font-size:1.2rem;
     padding: 0.5rem;
     margin-bottom: 0.5rem;
+    margin-right: 0.7rem;
     background-color: blanchedalmond;
 }
 
-#saved-palettes li h2 {
+#saved-palettes li button:hover {
+    color: black;
+    background-color: wheat;
+}
+
+.delete-from-library {
     margin-left: 1rem;
     color: red;
-    margin-top: 0.3rem;
+    margin-top:0.3rem;
+    cursor:pointer;
 }
 
 .cancel {
@@ -171,9 +182,11 @@
 
 /* TODO LIST */
 
-/* LIBRARY BUTTON:ACTIVE */
 /* STOP LIBRARY FROM GOING INTO THE SKY */
+/* CHANGE BLANCHEDALMOND COLOR SCHEME TO GRADIENT */
+/* GSAP ANIMATIONS */
 /* STYLE SAVE PALLETE FORM */
-/* OPTION TO DELETE SAVED PALETTES */
+/* localStorage Web Storage API */
 /* ANIMATION / PERSPECTIVE */
+/* OVERALL STYLING */
 /* UPDATE GITHUB */
