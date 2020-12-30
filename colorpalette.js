@@ -2,9 +2,7 @@
 const libraryul = document.querySelector('#saved-palettes')
 const savePopup = document.querySelector('#save-popup')
 const libraryPopup = document.querySelector('#library-popup')
-
-// library list element counter
-let liCounter = 1
+const clipboardPopup = document.querySelector('#clipboard-popup')
 
 
 // Adding everything from localStorage to the library 
@@ -39,7 +37,6 @@ for (let i = 0; i < localStorage.length; i++) {
 
 //GSAP Animation Initialization
 const t1 = new TimelineMax()
-
 
 
 function generateColors() {
@@ -78,6 +75,7 @@ function closeLibraryPopup() {
 }
 
 
+var liCounter = 1
 
 function transferToLibrary() {
     let colorStorage = []
@@ -141,7 +139,8 @@ function randomClassName() {
 const lockedColors = [0,0,0,0,0]
 
 function changeIcon (childNum) {
-    let lock = document.querySelector(`#locks button:nth-child(${childNum}) img`)
+    // childNum * 2 - 1 is used because the 3rd lock button, for example, is actually the 5th child
+    let lock = document.querySelector(`#locks-and-clipboards button:nth-child(${childNum * 2 - 1}) img`)
     console.log()
     if (lock.src.includes('Images/lock.png')) {
         lock.src = './Images/unlock.png'
@@ -150,6 +149,24 @@ function changeIcon (childNum) {
         lock.src = './Images/lock.png'
         lockedColors[childNum - 1] = 1
     }
+}
+
+function copyToClipboard (colorNum) {
+    let color = document.querySelector(`#color-list li:nth-child(${colorNum})`)
+    let colorText = color.innerHTML.slice(4,-1)
+    navigator.clipboard.writeText(colorText).then(clipboardSuccess, clipboardFail)
+}
+
+function clipboardSuccess () {
+    clipboardPopup.innerHTML = 'Successfully copied color to clipboard ✓'
+    clipboardPopup.style.opacity = '1'
+    setTimeout(function () {clipboardPopup.style.opacity = '0'}, 2000)
+} 
+
+function clipboardFail () {
+    clipboardPopup.innerHTML = 'Failed to copy color to clipboard ✗'
+    clipboardPopup.style.opacity = '1'
+    setTimeout(function () {clipboardPopup.style.opacity = '0'}, 2000)
 }
 
 

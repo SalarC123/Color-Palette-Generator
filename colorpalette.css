@@ -50,22 +50,26 @@
     background-color: rgb(255,0,255);
 }
 
-#locks {
+#locks-and-clipboards {
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
     margin-top: 1rem;
 }
 
-#locks button {
+#locks-and-clipboards button {
     margin: auto;
     border: white;
     background-color: white;
 }
 
-#locks button img {
-    width: 50px;
-    height: 50px;
+#locks-and-clipboards button img {
+    width: 40px;
+    height: 40px;
+}
+
+#locks-and-clipboards button img:hover {
+    opacity: 0.5;
 }
 
 #button-tabs {
@@ -215,6 +219,24 @@
     color:rgb(142, 128, 155);
 }
 
+#clipboard-popup {
+    background-color: black;
+    position: absolute;
+    border-radius: 20px;
+    bottom:7%;
+    left:50%;
+    transform: translate(-50%,0%);
+    padding: 20px;
+    opacity: 0;
+    transition: opacity 1s ease;
+    color: white;
+    font-size: 1.5em;
+}
+
+/* #clipboard-text {
+
+} */
+
 #footer {
     display:flex;
     flex-direction: row;
@@ -227,17 +249,17 @@
 
 #footer p {
     margin: 0.4rem 1rem;
-    padding: 1rem
+    padding: 1rem;
 }
 
 /* TODO LIST */
 
-/* CLIPBOARD API */
+/* FIX CLIPBOARD POPUP OPACITY ISSUE */
 /* CHANGE BLANCHEDALMOND COLOR SCHEME TO GRADIENT */
 /* MAKE LOCALSTORAGE WORK WITH TRANSFERTOLIBRARY() FUNCTION */
-/* GROUP JS FILES WITH IMPORT + EXPORT */
 /* UPDATE GITHUB */
 
+/* GROUP JS FILES WITH IMPORT + EXPORT */
 /* GSAP CARD FLIP */
 /* CHANGE IDS TO CLASSES */
 /* HTML INPUT PLACEHOLDER */

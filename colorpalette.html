@@ -16,12 +16,17 @@
                 <li>rgb(0, 255, 0)</li>
                 <li>rgb(255, 0, 255)</li>
             </ul>
-            <ul id="locks">
+            <ul id="locks-and-clipboards">
                 <button onclick="changeIcon(1)"><img src="./Images/unlock.png" alt="lock"></button>
+                <button onclick="copyToClipboard(1)"><img src="./Images/copy.png" alt="copy"></button>
                 <button onclick="changeIcon(2)"><img src="./Images/unlock.png" alt="lock"></button>
+                <button onclick="copyToClipboard(2)"><img src="./Images/copy.png" alt="copy"></button>
                 <button onclick="changeIcon(3)"><img src="./Images/unlock.png" alt="lock"></button>
+                <button onclick="copyToClipboard(3)"><img src="./Images/copy.png" alt="copy"></button>
                 <button onclick="changeIcon(4)"><img src="./Images/unlock.png" alt="lock"></button>
+                <button onclick="copyToClipboard(4)"><img src="./Images/copy.png" alt="copy"></button>
                 <button onclick="changeIcon(5)"><img src="./Images/unlock.png" alt="lock"></button>
+                <button onclick="copyToClipboard(5)"><img src="./Images/copy.png" alt="copy"></button>
             </ul>
             <div id="button-tabs">
                 <button onclick='generateColors()'><img src="images/generate.png" alt='Generate Icon'></button>
@@ -46,6 +51,7 @@
                     <ul id='saved-palettes'></ul>
                 </div>
             </div>
+            <div id="clipboard-popup"></div>
             <div id="footer">
                 <p>Social Media Icons</p>
                 <p>© Copyright 2020</p>
