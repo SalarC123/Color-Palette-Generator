@@ -1,10 +1,46 @@
-//GSAP Animation
-const t1 = new TimelineMax()
-
 // Common DOM Elements
 const libraryul = document.querySelector('#saved-palettes')
 const savePopup = document.querySelector('#save-popup')
 const libraryPopup = document.querySelector('#library-popup')
+
+// library list element counter
+let liCounter = 1
+
+
+// Adding everything from localStorage to the library 
+for (let i = 0; i < localStorage.length; i++) {
+    let key = localStorage.key(i)
+    let value = localStorage.getItem(key)
+
+    // Add button
+    let newButton = document.createElement('button')
+    newButton.innerHTML = key
+    libraryul.innerHTML += `<li>${newButton.outerHTML}</li>`
+
+    // Add colors
+    let libraryListElement = document.querySelector(`#saved-palettes li:nth-child(${i + 1})`)
+    for (let j = 0; j < 5; j++){
+        let newClassTag = `color-${randomClassName()}`
+        color = value.split(',').slice(j*3, j*3+3).join(',')
+        newSpan = document.createElement('span')
+        newSpan.setAttribute('class', newClassTag)
+        libraryListElement.appendChild(newSpan)
+        let colorBlock = document.querySelector('.' + newClassTag)
+        colorBlock.style.width = '35px'
+        colorBlock.style.height = '35px'
+        colorBlock.style.backgroundColor = color
+    }
+
+    // Add "delete palette" button
+    libraryListElement.innerHTML += "<h2 class='delete-from-library'>X</h2>"
+    liCounter++
+}
+
+
+//GSAP Animation Initialization
+const t1 = new TimelineMax()
+
+
 
 function generateColors() {
     for (let i = 1; i < 5 + 1; i++) {
@@ -43,8 +79,9 @@ function closeLibraryPopup() {
 
 
 
-let liCounter = 1
 function transferToLibrary() {
+    let colorStorage = []
+
     // Adds button to library
     let inputText = document.querySelector('#name-of-palette').value
     if (inputText) {
@@ -53,18 +90,21 @@ function transferToLibrary() {
     }
 
     
-    // Adds colors to library
+    // Saves colors to library and localStorage
     let libraryulli = document.querySelector(`#saved-palettes li:nth-child(${liCounter})`)
     let colors = document.querySelectorAll('#color-list li')
     for (color of colors) {
         let newClassTag = `color-${randomClassName()}`
         newSpan = document.createElement('span')
         newSpan.setAttribute('class', newClassTag)
-        libraryulli.innerHTML += newSpan.outerHTML
+        libraryulli.appendChild(newSpan)
         let colorBlock = document.querySelector('.' + newClassTag)
         colorBlock.style.width = '35px'
         colorBlock.style.height = '35px'
         colorBlock.style.backgroundColor = color.innerHTML
+
+        colorStorage.push(color.innerHTML)
+        localStorage.setItem(inputText, colorStorage)
     }
 
     // Adds red X for deleting saved palettes
@@ -134,5 +174,8 @@ libraryul.addEventListener('click', e => {
     if (e.target instanceof HTMLHeadingElement) {
         libraryul.removeChild(e.target.parentElement)
         liCounter--
+
+        buttonText = e.target.parentElement.firstChild.innerHTML
+        localStorage.removeItem(buttonText)
     }
 })
