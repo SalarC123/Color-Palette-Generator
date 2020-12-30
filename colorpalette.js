@@ -1,11 +1,6 @@
 //GSAP Animation
 const t1 = new TimelineMax()
 
-// t1.fromTo('#button-tabs', 1, {x: '-300'}, {x:'0', ease: 'sine.out'})
-// .fromTo('#button-text', 1, {x: '300'}, {x:'0', ease: 'sine.out'}, '-=1')
-// .fromTo('#color-list', 1, {y:'-600'}, {y:'0', ease: 'sine.out'}, '-=1')
-// .fromTo('#button-tabs', 1, {padding:'100px'}, {padding:'5px', ease:'sine.out'}, '-=1')
-
 // Common DOM Elements
 const libraryul = document.querySelector('#saved-palettes')
 const savePopup = document.querySelector('#save-popup')
@@ -18,7 +13,7 @@ function generateColors() {
         }
         let newColor = `rgb(${Math.floor(Math.random()*255) + 1}, ${Math.floor(Math.random()*255) + 1}, ${Math.floor(Math.random()*255) + 1})`
         const colorBox = document.querySelector(`#color-list li:nth-child(${i})`)
-        t1.fromTo(colorBox, 0.4, {y:'-600', backgroundColor:newColor}, {y:'0', ease: 'sine.out'})
+        t1.fromTo(colorBox, 0.5, {y:'-800', backgroundColor:newColor}, {y:'0', ease: 'sine.out'})
         // colorBox.style.backgroundColor = `${newColor}`
         colorBox.innerHTML = newColor
     }
