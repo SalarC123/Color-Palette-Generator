@@ -39,17 +39,24 @@ for (let i = 0; i < localStorage.length; i++) {
 const t1 = new TimelineMax()
 
 
+let generateColorsButton = document.querySelector('#button-tabs button:first-child')
+
 function generateColors() {
+    let colorsPlayed = 0
+    generateColorsButton.disabled = true
     for (let i = 1; i < 5 + 1; i++) {
         if (lockedColors[i - 1]) {
             continue
         }
+        colorsPlayed++
         let newColor = `rgb(${Math.floor(Math.random()*255) + 1}, ${Math.floor(Math.random()*255) + 1}, ${Math.floor(Math.random()*255) + 1})`
         const colorBox = document.querySelector(`#color-list li:nth-child(${i})`)
         t1.fromTo(colorBox, 0.5, {y:'-800', backgroundColor:newColor}, {y:'0', ease: 'sine.out'})
         // colorBox.style.backgroundColor = `${newColor}`
         colorBox.innerHTML = newColor
     }
+    setTimeout(() => generateColorsButton.disabled = false, 500*colorsPlayed)
+    console.log(colorsPlayed)
 }
 
 function savePalette() {
