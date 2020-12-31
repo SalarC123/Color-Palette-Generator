@@ -112,7 +112,7 @@ function transferToLibrary() {
 
 
 
-const blurredItems = ['#button-text', '#button-tabs', '#color-list', '#footer', '#locks']
+const blurredItems = ['#button-text', '#button-tabs', '#color-list', '#footer', '#locks-and-clipboards']
 
 function blurBackground() {
     for (item of blurredItems) {
