@@ -2,6 +2,8 @@
 
 [View It Here](https://salarc123.github.io/Color-Palette-Generator/)
 
+![Example Image](./Images/example.png)
+
 ## What is this?
 This is a web app for generating and saving randomized color palettes of five colors to assist brands in finding the perfect color scheme
 
