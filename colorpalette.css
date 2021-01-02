@@ -125,6 +125,7 @@
     border-radius: 15px;
     padding: 20px;
     background-color:white;
+    z-index:5;
 }
 
 #name-of-palette {
@@ -169,6 +170,7 @@
     border-radius: 15px;
     padding: 20px;
     background-color:white;
+    z-index:5;
 }
 
 #saved-palettes span {
@@ -236,6 +238,13 @@
     transition: opacity 1s ease;
     color: white;
     font-size: 1.5em;
+    animation: move-into-view 2s normal forwards;  
+    animation-iteration-count: 1;  
+}
+
+@keyframes move-into-view {
+    from {left:-200%;} 
+    to {left: 50%;}
 }
 
 /* #clipboard-text {
@@ -244,6 +253,7 @@
 
 #footer {
     display:flex;
+    background-color: white;
     flex-direction: row;
     justify-content: space-between;
     position:absolute;
@@ -257,14 +267,24 @@
     padding: 1rem;
 }
 
+.prac-div {
+    position: absolute;
+    z-index: 2;
+    top:0;
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    display: none;
+    opacity: 0.6;
+}
+
 /* TODO LIST */
 
-/* FIX CLIPBOARD POPUP OPACITY ISSUE */
-/* MAKE LOCALSTORAGE WORK WITH TRANSFERTOLIBRARY() FUNCTION */
 /* ADJUST COLORS WITH HSL */
-/* DEPLOY */
+/* NETLIFY DEPLOY*/
+/* README FILE - ADD NEW LINES FOR BULLET POINTS */
+/* PHONE COMPATIBILITY @MEDIA */
 
-/* GROUP JS FILES WITH IMPORT + EXPORT */
 /* GSAP CARD FLIP */
 /* CHANGE IDS TO CLASSES */
 /* HTML INPUT PLACEHOLDER */

@@ -8,7 +8,7 @@ const clipboardPopup = document.querySelector('#clipboard-popup')
 // Adding everything from localStorage to the library 
 for (let i = 0; i < localStorage.length; i++) {
     let key = localStorage.key(i)
-    let value = localStorage.getItem(key)
+    let value = JSON.parse(localStorage.getItem(key))
 
     // Add button
     let newButton = document.createElement('button')
@@ -18,15 +18,12 @@ for (let i = 0; i < localStorage.length; i++) {
     // Add colors
     let libraryListElement = document.querySelector(`#saved-palettes li:nth-child(${i + 1})`)
     for (let j = 0; j < 5; j++){
-        let newClassTag = `color-${randomClassName()}`
-        color = value.split(',').slice(j*3, j*3+3).join(',')
+        color = value[j+1]
         newSpan = document.createElement('span')
-        newSpan.setAttribute('class', newClassTag)
         libraryListElement.appendChild(newSpan)
-        let colorBlock = document.querySelector('.' + newClassTag)
-        colorBlock.style.width = '35px'
-        colorBlock.style.height = '35px'
-        colorBlock.style.backgroundColor = color
+        newSpan.style.width = '35px'
+        newSpan.style.height = '35px'
+        newSpan.style.backgroundColor = color
     }
 
     // Add "delete palette" button
@@ -56,90 +53,84 @@ function generateColors() {
         colorBox.innerHTML = newColor
     }
     setTimeout(() => generateColorsButton.disabled = false, 500*colorsPlayed)
-    console.log(colorsPlayed)
 }
 
 function savePalette() {
     closeLibraryPopup()
     savePopup.style.display = 'block'
-    blurBackground()
+    darkenBackground()
 }
 
 function closeSavePopup() {
     savePopup.style.display = 'none'
-    unblurBackground()
+    lightenBackground()
 }
 
 function library() {
     closeSavePopup()
     libraryPopup.style.display = 'block'
-    blurBackground()
+    darkenBackground()
 }
 
 function closeLibraryPopup() {
     libraryPopup.style.display = 'none'
-    unblurBackground()
+    lightenBackground()
 }
 
 
 var liCounter = 1
 
 function transferToLibrary() {
-    let colorStorage = []
+    let colorStorage = {}
 
     // Adds button to library
     let inputText = document.querySelector('#name-of-palette').value
-    if (inputText) {
+    if (inputText && !(Object.keys(localStorage).includes(inputText))) {
         document.querySelector('#name-of-palette').value = ''
         libraryul.innerHTML += `<li><button>${inputText}</button></li>`
-    }
 
     
-    // Saves colors to library and localStorage
-    let libraryulli = document.querySelector(`#saved-palettes li:nth-child(${liCounter})`)
-    let colors = document.querySelectorAll('#color-list li')
-    for (color of colors) {
-        let newClassTag = `color-${randomClassName()}`
-        newSpan = document.createElement('span')
-        newSpan.setAttribute('class', newClassTag)
-        libraryulli.appendChild(newSpan)
-        let colorBlock = document.querySelector('.' + newClassTag)
-        colorBlock.style.width = '35px'
-        colorBlock.style.height = '35px'
-        colorBlock.style.backgroundColor = color.innerHTML
+        // Saves colors to library and localStorage
+        let libraryulli = document.querySelector(`#saved-palettes li:nth-child(${localStorage.length + 1})`)
+        let colors = document.querySelectorAll('#color-list li')
+        spanCounter = 1     //DELETE LATER
 
-        colorStorage.push(color.innerHTML)
-        localStorage.setItem(inputText, colorStorage)
-    }
+        for (color of colors) {
+            newSpan = document.createElement('span')
+            libraryulli.appendChild(newSpan)
+            newSpan.style.width = '35px'
+            newSpan.style.height = '35px'
+            newSpan.style.backgroundColor = color.innerHTML
 
-    // Adds red X for deleting saved palettes
-    libraryulli.innerHTML += "<h2 class='delete-from-library'>X</h2>"
-    liCounter++
-}
+            colorStorage[spanCounter++] = color.innerHTML
 
+            console.log(colors)
+            console.log(libraryulli)
+            console.log(liCounter)
+            console.log(localStorage.length)
+        }
 
+        localStorage.setItem(inputText, JSON.stringify(colorStorage))
 
-const blurredItems = ['#button-text', '#button-tabs', '#color-list', '#footer', '#locks-and-clipboards']
-
-function blurBackground() {
-    for (item of blurredItems) {
-        document.querySelector(item).style.filter = 'blur(3px)'
-        document.querySelector(item).style.transition = 'all 0.2s ease-in 0s'
-    }
-}
-
-function unblurBackground() {
-    for (item of blurredItems) {
-        document.querySelector(item).style.filter = 'blur(0px)'
-        document.querySelector(item).style.transition = 'all 0.2s ease-out 0s'
+        // Adds red X for deleting saved palettes
+        libraryulli.innerHTML += "<h2 class='delete-from-library'>X</h2>"
+        liCounter++
+    } else {
+        alert('name in library already or name is empty')
     }
 }
 
 
 
-function randomClassName() {
-    return Math.random().toString(36).substr(2,10)
+function darkenBackground() {
+    document.querySelector('.prac-div').style.display = 'block'
 }
+
+function lightenBackground() {
+    document.querySelector('.prac-div').style.display = 'none'
+}
+
+
 
 
 // 1 = LOCKED, 0 = UNLOCKED
