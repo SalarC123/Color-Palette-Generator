@@ -116,18 +116,18 @@ function transferToLibrary() {
         libraryulli.innerHTML += "<h2 class='delete-from-library'>X</h2>"
         liCounter++
     } else {
-        alert('name in library already or name is empty')
+        alert('Please enter a name (duplicate names are not allowed)')
     }
 }
 
 
 
 function darkenBackground() {
-    document.querySelector('.prac-div').style.display = 'block'
+    document.querySelector('.dark-layer').style.display = 'block'
 }
 
 function lightenBackground() {
-    document.querySelector('.prac-div').style.display = 'none'
+    document.querySelector('.dark-layer').style.display = 'none'
 }
 
 

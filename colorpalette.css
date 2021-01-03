@@ -230,7 +230,7 @@
     background-color: black;
     position: absolute;
     border-radius: 20px;
-    bottom:7%;
+    bottom:70%;
     left:50%;
     transform: translate(-50%,0%);
     padding: 20px;
@@ -256,10 +256,11 @@
     background-color: white;
     flex-direction: row;
     justify-content: space-between;
-    position:absolute;
-    bottom:0;
+    position:relative;
+    top:9vh;
     width:100%;
     box-shadow: 0px -5px 10px #c4c4c4;
+    margin-top: 30px;
 }
 
 #footer p {
@@ -267,7 +268,7 @@
     padding: 1rem;
 }
 
-.prac-div {
+.dark-layer {
     position: absolute;
     z-index: 2;
     top:0;
@@ -281,10 +282,7 @@
 /* TODO LIST */
 
 /* ADJUST COLORS WITH HSL */
-/* NETLIFY DEPLOY*/
-/* README FILE - ADD NEW LINES FOR BULLET POINTS */
+/* NETLIFY CLI */
 /* PHONE COMPATIBILITY @MEDIA */
-
-/* GSAP CARD FLIP */
-/* CHANGE IDS TO CLASSES */
-/* HTML INPUT PLACEHOLDER */
+/* OTHER BROWSERS COMPATIBILITY */
+/* FOOTER */
