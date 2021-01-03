@@ -9,9 +9,9 @@
 This is a web app for generating and saving randomized color palettes of five colors to assist brands in finding the perfect color scheme
 
 ## Features 
-**•**Generate colors with one click <br />
-**•**Save your palettes to a library <br />
-**•**Delete palettes in the library <br />
-**•**Copy colors to clipboard <br />
-**•**Lock in desirable colors <br />
-**•**Local Storage Support (Saved palettes will not go on refresh)
+• Generate colors with one click <br />
+• Save your palettes to a library <br />
+• Delete palettes in the library <br />
+• Copy colors to clipboard <br />
+• Lock in desirable colors <br />
+• Local Storage Support (Saved palettes will not go on refresh)
