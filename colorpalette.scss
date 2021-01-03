@@ -1,0 +1,286 @@
+@import url('https://fonts.googleapis.com/css2?family=Quattrocento&display=swap');
+
+// VARIABLES
+$main-color:white;
+$box-shadow-color:black;
+$hover-opacity:0.6;
+
+@mixin flex($justify-content:space-between) {
+    display: flex;
+    flex-direction: row;
+    justify-content: $justify-content;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: Quattrocento;
+}
+
+/* body {
+    perspective: 1000px;
+}
+
+#button-tabs, #button-text, #color-list, #footer {
+    transform: rotateY(45deg) rotateX(45deg);
+} */
+
+#color-list {
+    @include flex();
+    align-items: center;
+
+    li {
+        list-style-type: none;
+        min-width: 20%;
+        line-height: 50rem;
+        text-align: center;
+        font-size: 20px;
+
+        &:first-child {
+            background-color:rgb(255,0,0);
+        }
+        &:nth-child(2) {
+            background-color:rgb(0,0,255);
+        }
+        &:nth-child(3) {
+            background-color:rgb(255,255,0);
+        }
+        &:nth-child(4) {
+            background-color:rgb(0,255,0);
+        }
+        &:nth-child(5) {
+            background-color:rgb(255,0,255);
+        }
+    }
+}
+
+#locks-and-clipboards {
+    @include flex();
+    margin-top: 1rem;
+
+    button {
+        margin: auto;
+        border: $main-color;
+        background-color: $main-color;
+
+        img {
+            width: 40px;
+            height: 40px;
+
+            &:hover {
+                opacity: $hover-opacity;
+            }
+        }
+    }
+}
+
+#button-tabs {
+    @include flex();     
+    margin-top: 2rem;
+
+    button {
+        font-size: 30px;
+        background-color: transparent;
+        border:none;
+        background: $main-color;
+        box-shadow: 0 0 10px $box-shadow-color;
+        border-radius: 15px;
+        color: black;
+        cursor: pointer;
+        margin-left: 3rem;              
+        margin-right: 3rem;  
+        transition: padding 0.5s ease;
+
+        &:hover {
+            box-shadow: 0 0 25px $box-shadow-color;
+            /* transform: rotateZ(45deg) skew(45deg); */
+            padding: 15px;
+            transition: all 0.5s ease;
+        }
+
+        img {
+            width: 20%
+        }
+    }
+}       
+
+#button-text {
+    @extend #locks-and-clipboards;
+
+    h1 {
+        margin-right: 9rem;
+        margin-left: 3rem;
+    }
+}
+
+#save-popup {
+    position:absolute;
+    left:50%;
+    top:20%;
+    transform: translate(-50%, -50%);
+    display: none;
+    border: 5px solid black;
+    border-radius: 15px;
+    padding: 20px;
+    background-color:$main-color;
+    z-index:5;
+}
+
+#name-of-palette {
+    margin-top: 1rem;
+    font-size: 1.5rem;
+    border-radius: 10px;
+    border: 3px solid black;
+    /* background-color: black;
+    color: white; */
+    padding:10px;
+    outline: none;
+    /* background-image: linear-gradient(to right, #00ff1e ,#00fbff) */
+}
+
+#submit {
+    /* background-image: linear-gradient(to right, #00ff1e ,#00fbff); */
+    width: 3rem;
+    height: 3rem;
+    font-size: large;
+    padding:3px;
+    border: 3px solid black;
+    border-radius: 10px;
+    background-color: $main-color;
+    margin-left: 0.3rem;
+
+    &:hover {
+        background-color: rgb(233, 233, 233);
+        color: rgb(0, 0, 0);
+    }
+}
+
+#library-container {
+    @include flex(center)
+}
+
+#library-popup {
+    position:absolute;
+    top:10%;
+    display: none;
+    border: 5px solid black;
+    border-radius: 15px;
+    padding: 20px;
+    background-color:$main-color;
+    z-index:5;
+}
+
+#saved-palettes {
+    span {
+        display: inline-block;
+    }
+    li {
+        list-style-type: none;
+        margin-right: 1rem;
+        margin-top: 1.3rem;
+        display:flex;
+        flex-direction: row;
+
+        button {
+            border:none;
+            cursor:pointer;
+            font-size:1.2rem;
+            padding: 0.5rem;
+            margin-bottom: 0.5rem;
+            border-radius: 8px;
+            margin-right: 0.7rem;
+            background: $main-color;
+            box-shadow: 0 0 10px $box-shadow-color;
+            transition: box-shadow 0.5s ease;
+
+            &:hover {
+                color: black;
+                box-shadow: 0 0 25px $box-shadow-color;
+                transition: box-shadow 1s ease;
+            }
+        }
+    }
+}
+
+.delete-from-library {
+    margin-left: 1rem;
+    color: red;
+    margin-top:0.3rem;
+    cursor:pointer;
+
+    &:hover {
+        opacity:$hover-opacity;
+    }
+}
+
+.cancel {
+    position:relative;
+    left: 98%;
+    top:98%;
+    transform: translate(-50%, -50%);
+    border:none;
+    font-size: 30px;
+    background-color: $main-color;
+    cursor: pointer;
+
+    &:hover {
+        opacity:$hover-opacity;
+    }
+}
+
+#clipboard-popup {
+    background-color: black;
+    position: absolute;
+    border-radius: 20px;
+    bottom:70%;
+    left:50%;
+    transform: translate(-50%,0%);
+    padding: 20px;
+    opacity: 0;
+    transition: opacity 1s ease;
+    color: $main-color;
+    font-size: 1.5em;
+    animation: move-into-view 2s normal forwards;  
+    animation-iteration-count: 1;  
+}
+
+// This solves the problem of the clipboard popup transitioning its opacity on load
+@keyframes move-into-view {
+    from {left:-200%;} 
+    to {left: 50%;}
+}
+
+#footer {
+    @include flex();
+    background-color: $main-color;
+    position:relative;
+    top:9vh;
+    width:100%;
+    box-shadow: 0px -5px 10px #c4c4c4;
+    margin-top: 30px;
+
+    p {
+        margin: 0.4rem 1rem;
+        padding: 1rem;
+    }
+}
+
+.dark-layer {
+    position: absolute;
+    z-index: 2;
+    top:0;
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    display: none;
+    opacity: $hover-opacity;
+}
+
+/* TODO LIST */
+
+/* ADJUST COLORS WITH HSL */
+/* NETLIFY CLI */
+/* PHONE COMPATIBILITY @MEDIA */
+/* OTHER BROWSERS COMPATIBILITY */
+/* FOOTER */
