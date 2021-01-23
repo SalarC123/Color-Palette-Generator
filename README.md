@@ -1,6 +1,6 @@
 # Color-Palette-Generator
 
-[View It Here](https://salarc123.github.io/Color-Palette-Generator/)
+[View It Here](https://colorpalette-generator.netlify.app)
 
 ![Example Image](./Images/example.png)
 ![Example Image 2](./Images/example2.png)
