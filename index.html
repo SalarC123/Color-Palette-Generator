@@ -38,13 +38,15 @@
                 <h1>Save Palette</p>
                 <h1>Library</h1>
             </div>
-            <div id="save-popup">
-                <button onclick='closeSavePopup()' class='cancel'>X</button>
-                <h1>Name Your Palette</h1>
-                <input id='name-of-palette' type="text">
-                <input onclick='transferToLibrary()' id='submit' type="submit" value="Save">
+            <div class="save-dark-layer">
+                <div id="save-popup">
+                    <button onclick='closeSavePopup()' class='cancel'>X</button>
+                    <h1>Name Your Palette</h1>
+                    <input id='name-of-palette' type="text">
+                    <input onclick='transferToLibrary()' id='submit' type="submit" value="Save">
+                </div>
             </div>
-            <div id="library-container">
+            <div class="library-dark-layer">
                 <div id="library-popup">
                     <button onclick='closeLibraryPopup()' class='cancel'>X</button>
                     <h1>Saved Palettes</h1>
@@ -58,8 +60,6 @@
                 <p><i>All rights reserved</i></p>
                 <p>Salar Cheema</p>
             </div>
-
-            <div class="dark-layer"></div>
 
         </div>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/latest/TweenMax.min.js" integrity="sha512-8Wy4KH0O+AuzjMm1w5QfZ5j5/y8Q/kcUktK9mPUVaUoBvh3QPUZB822W/vy7ULqri3yR8daH3F58+Y8Z08qzeg==" crossorigin="anonymous"></script>

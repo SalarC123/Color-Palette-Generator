@@ -3,6 +3,8 @@ const libraryul = document.querySelector('#saved-palettes')
 const savePopup = document.querySelector('#save-popup')
 const libraryPopup = document.querySelector('#library-popup')
 const clipboardPopup = document.querySelector('#clipboard-popup')
+const saveDarkLayer = document.querySelector('.save-dark-layer')
+const libraryDarkLayer = document.querySelector('.library-dark-layer')
 
 
 // Adding everything from localStorage to the library 
@@ -48,8 +50,7 @@ function generateColors() {
         colorsPlayed++
         let newColor = `rgb(${Math.floor(Math.random()*255) + 1}, ${Math.floor(Math.random()*255) + 1}, ${Math.floor(Math.random()*255) + 1})`
         const colorBox = document.querySelector(`#color-list li:nth-child(${i})`)
-        t1.fromTo(colorBox, 0.5, {y:'-800', backgroundColor:newColor}, {y:'0', ease: 'sine.out'})
-        // colorBox.style.backgroundColor = `${newColor}`
+        t1.fromTo(colorBox, 0.5, {y:`-${colorBox.offsetHeight}`, backgroundColor:newColor}, {y:'0', ease: 'sine.out'})
         colorBox.innerHTML = newColor
     }
     setTimeout(() => generateColorsButton.disabled = false, 500*colorsPlayed)
@@ -58,24 +59,38 @@ function generateColors() {
 function savePalette() {
     closeLibraryPopup()
     savePopup.style.display = 'block'
-    darkenBackground()
+    saveDarkLayer.style.display = 'block'
 }
 
 function closeSavePopup() {
     savePopup.style.display = 'none'
-    lightenBackground()
+    saveDarkLayer.style.display = 'none'
 }
 
 function library() {
     closeSavePopup()
     libraryPopup.style.display = 'block'
-    darkenBackground()
+    libraryDarkLayer.style.display = 'block'
 }
 
 function closeLibraryPopup() {
     libraryPopup.style.display = 'none'
-    lightenBackground()
+    libraryDarkLayer.style.display = 'none'
 }
+
+// saveDarkLayer.addEventListener('click', (e) => {
+//     if (e.target != this) {
+//         closeSavePopup()
+//     }
+// })
+
+// libraryDarkLayer.addEventListener('click', (e) => {
+//     if (e.target != this) {
+//         closeLibraryPopup()
+//     }
+// })
+ 
+
 
 
 var liCounter = 1
@@ -118,16 +133,6 @@ function transferToLibrary() {
     } else {
         alert('Please enter a name (duplicate names are not allowed)')
     }
-}
-
-
-
-function darkenBackground() {
-    document.querySelector('.dark-layer').style.display = 'block'
-}
-
-function lightenBackground() {
-    document.querySelector('.dark-layer').style.display = 'none'
 }
 
 
